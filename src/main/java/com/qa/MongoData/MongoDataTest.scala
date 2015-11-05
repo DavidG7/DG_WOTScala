@@ -2,6 +2,8 @@ package com.qa.MongoData
 
 import com.mongodb.casbah.MongoClient
 import com.qa.Entities.Employee
+import com.qa.Entities.Employee
+import com.qa.Entities.Employee
 
 
 
