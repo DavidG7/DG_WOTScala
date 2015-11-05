@@ -1,4 +1,4 @@
-package com.qa.MongoData
+package com.qa.Connectors
 
 import com.mongodb.casbah.MongoClient
 import com.qa.Entities.Employee
@@ -10,7 +10,7 @@ import com.qa.Entities.Employee
 /**
  * @author dgordon
  */
-class MongoDataTest {
+class MongoConnector {
   val mongoClient = MongoClient("localhost", 27017)
   val db = mongoClient("WOTS")
   
@@ -26,7 +26,6 @@ class MongoDataTest {
            doc.get("employeePassword").toString(),Integer.parseInt(doc.get("accessLevel").toString().substring(0,1)))
        temp(count) = employee
      }
-     temp
-
+    temp
   }
 }
