@@ -19,7 +19,7 @@ class MongoConnector {
     val temp:Array[Employee] = new Array[Employee](coll.count())
     val allDocs = coll.find()
     var count:Int = 0
-    println( allDocs )
+    
      for(doc <- allDocs) {
        count+.1
        val employee = new Employee(Integer.parseInt(doc.get("_id").toString().substring(0,1)),doc.get("employeeName").toString(),doc.get("employeeUserName").toString(),
