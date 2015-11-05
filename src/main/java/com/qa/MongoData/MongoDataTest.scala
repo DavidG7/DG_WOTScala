@@ -14,7 +14,7 @@ class MongoDataTest {
   val mongoClient = MongoClient("localhost", 27017)
   val db = mongoClient("WOTS")
   
-    def employeeMongoData() = Array[Employee]  {
+    def employeeMongoData() : Array[Employee]  = {
     val coll = db("Employee")
     val temp:Array[Employee] = new Array[Employee](coll.count())
     val allDocs = coll.find()
@@ -26,7 +26,7 @@ class MongoDataTest {
            doc.get("employeePassword").toString(),Integer.parseInt(doc.get("accessLevel").toString().substring(0,1)))
        temp(count) = employee
      }
-     temp(0)
+     temp
 
   }
 }
