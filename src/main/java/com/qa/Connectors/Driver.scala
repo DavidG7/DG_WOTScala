@@ -3,7 +3,8 @@ package com.qa.Connectors
 import java.util.Scanner
 import java.io.Console
 import com.qa.Entities.Employee
-
+import com.qa.Utility.NumberFormatter
+import com.qa.Utility.NumberFormatter
 
 /**
  * @author dgordon
@@ -15,9 +16,12 @@ import com.qa.Entities.Employee
 object Driver {
    val mongo = new MongoConnector
    val employees = mongo.employeeMongoData()
+   val scan  = new Scanner(System.in)
     
   def main(args: Array[String]){
-     buildLanding(true)
+     val sqlConnector = new SQLConnector
+     sqlConnector.getTableInfo("customerOrder")
+    // buildLanding(true)
   }
   
   def buildLanding(firstTime:Boolean) {
@@ -31,7 +35,7 @@ object Driver {
       println("Ensure correct credintials before retrying")
     }
     println("Username:")
-    val scan  = new Scanner(System.in)
+    
     val username = scan.nextLine()
     println("Password:")
     val password = scan.nextLine()
@@ -64,17 +68,48 @@ object Driver {
   def loginBridge(validated:Boolean) {
     validated match {
       case true  => menu()
-      case false  => buildLanding(false)
+      case false  => buildLanding(false) 
       case _  =>  
     }
   }
   
   
   def menu(){
-    println("Welcome" + employees(0).getEmployeeName())
+    println()
+    println("Welcome " + employees(0).getEmployeeName())
+    println()
     println("/**MENU**/")
     println("(1) Customer Orders ")
+    val orderType = scan.nextLine()
+    orderBridge(menu,orderType)
     //println("Welcome" + employees(0).getEmployeeName())
     
   }
+  
+  def orderBridge(callback: () => Unit,orderType:String): Unit = { 
+    val numFormatter = new NumberFormatter
+    if(numFormatter.convertFromStringToInt(orderType)){
+      val orderTypeInt = orderType.toInt
+      orderTypeInt match {
+      case 1 => customerOrders(menu)
+   
+      case _  => callback() 
+    }
+    }else{
+      callback()
+    }
+   
+    
+  }
+  
+  
+  def customerOrders(callback: () => Unit) = {
+    println("Customer Orders")
+  }
+  
+
+   
+    
+
+  
 }
