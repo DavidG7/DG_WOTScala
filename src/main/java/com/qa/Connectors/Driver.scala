@@ -14,14 +14,16 @@ import com.qa.Utility.NumberFormatter
  * @author dgordon
  */
 object Driver {
+   
    val mongo = new MongoConnector
    val employees = mongo.employeeMongoData()
+   Gnome.printGnome()
+   val sqlConnector = new SQLConnector
+   val customerOrders = sqlConnector.getTableInfo()
    val scan  = new Scanner(System.in)
     
   def main(args: Array[String]){
-     val sqlConnector = new SQLConnector
-     sqlConnector.getTableInfo("customerOrder")
-    // buildLanding(true)
+      buildLanding(true)
   }
   
   def buildLanding(firstTime:Boolean) {
@@ -91,7 +93,7 @@ object Driver {
     if(numFormatter.convertFromStringToInt(orderType)){
       val orderTypeInt = orderType.toInt
       orderTypeInt match {
-      case 1 => customerOrders(menu)
+      case 1 => customerOrder()
    
       case _  => callback() 
     }
@@ -103,10 +105,35 @@ object Driver {
   }
   
   
-  def customerOrders(callback: () => Unit) = {
-    println("Customer Orders")
+  def customerOrder() = {
+    val count = 0
+      print("CO ID")
+      print(" |     ")
+      print("C ID")
+      print("     | ")
+      print("CO STATUS")
+      println()
+    
+    def printCustomerOrder(count:Int):Unit= {
+      try{
+      print(customerOrders(count).getCustomerOrderID())
+      print("     |    ")
+      print(customerOrders(count).getCustomerID())
+      print("    |    ")
+      print(customerOrders(count).customerOrderStatus)
+      println()
+      printCustomerOrder(count.+(1))
+      }catch {
+      case e: IndexOutOfBoundsException => ()    }
+    }
+    
+    printCustomerOrder(count)
   }
   
+  
+  
+
+ 
 
    
     
