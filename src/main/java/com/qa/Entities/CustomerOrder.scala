@@ -3,7 +3,7 @@ package com.qa.Entities
 /**
  * @author dgordon
  */
-class CustomerOrder (customerOrderID:Int, customerID:Int, customerOrderDate:String, var customerOrderStatus:String, customerOrderTotal:Double){
+class CustomerOrder (customerOrderID:Int, customerID:Int, customerOrderDate:String, var customerOrderStatus:String, employeeID:Int){
   
    def getCustomerOrderID() :Int = {
     customerOrderID
@@ -17,8 +17,8 @@ class CustomerOrder (customerOrderID:Int, customerID:Int, customerOrderDate:Stri
     customerOrderDate
   }
     
-  def getCustomerOrderTotal() :Double = {
-    customerOrderTotal 
+  def getEmoployeeID() :Int = {
+    employeeID 
    }
 
 

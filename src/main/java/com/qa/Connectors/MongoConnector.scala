@@ -4,6 +4,9 @@ import com.mongodb.casbah.MongoClient
 import com.qa.Entities.Employee
 import com.qa.Entities.Employee
 import com.qa.Entities.Employee
+import java.util.logging.Logger
+
+
 
 
 
@@ -11,6 +14,7 @@ import com.qa.Entities.Employee
  * @author dgordon
  */
 class MongoConnector {
+
   val mongoClient = MongoClient("localhost", 27017)
   val db = mongoClient("WOTS")
   
@@ -28,4 +32,6 @@ class MongoConnector {
      }
     temp
   }
+  
+    
 }
