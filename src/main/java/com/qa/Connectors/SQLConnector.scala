@@ -41,23 +41,13 @@ class SQLConnector {
       val statement = connection.createStatement()
       val resultSet = statement.executeQuery("SELECT * FROM customerorder")
       var count = 0;
-      
-      
-      
       val customerOrders = new Array[CustomerOrder](5)
-     
       while ( resultSet.next() ) {
- 
-        
         customerOrders(count) = new CustomerOrder(resultSet.getString("customerOrderID").toInt, resultSet.getString("customerID").toInt, resultSet.getString("customerOrderDate"),
             resultSet.getString("customerOrderStatus"), resultSet.getString("employeeID").toInt)
-     
         count = count+1
-        
-      
       }
-       
-    connection.close()
+     connection.close()
     customerOrders
   }
   
@@ -76,22 +66,12 @@ class SQLConnector {
       val statement = connection.createStatement()
       val resultSet = statement.executeQuery("SELECT * FROM customerorderline")
       var count = 0;
-      
-      
-      
       val customerOrderLines = new Array[CustomerOrderLine](8)
-     
       while ( resultSet.next() ) {
- 
-        
-        customerOrderLines(count) = new CustomerOrderLine(resultSet.getString("customerOrderID").toInt, resultSet.getString("productID").toInt,
+         customerOrderLines(count) = new CustomerOrderLine(resultSet.getString("customerOrderID").toInt, resultSet.getString("productID").toInt,
             resultSet.getString("quantity").toInt)
-     
         count = count+1
-        
-      
       }
-       
     connection.close()
     customerOrderLines
   }

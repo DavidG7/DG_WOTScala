@@ -20,5 +20,8 @@ class PrevNextEnum extends Enumeration {
 object State extends PrevNextEnum {
  type State = Value
  val Confirmed = Value("Confirmed")
- val Accepted = Value("Accepted")
+ val Accepted = Value("Accepted ")
+ val Picked = Value("Picked   ")
+ val Packed = Value("Packed   ")
+ val InGDZ = Value("InGDZ    ")
 }
