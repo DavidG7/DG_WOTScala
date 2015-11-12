@@ -9,12 +9,9 @@ import com.qa.Entities.CustomerOrder
 import com.qa.Entities.CustomerOrderLine
 import com.mysql.jdbc.ResultSetImpl
 import java.sql.ResultSet
+import com.qa.Entities.PurchaseOrder
 
- 
-/**
- * A Scala JDBC connection example by Alvin Alexander,
- * <a href="http://alvinalexander.com" title="http://alvinalexander.com">http://alvinalexander.com</a>
- */
+
 class SQLConnector {
      // connect to the database named "mysql" on the localhost
     val driver = "com.mysql.jdbc.Driver"
@@ -49,6 +46,28 @@ class SQLConnector {
       }
      connection.close()
     customerOrders
+  }
+    
+    def getPurchaseOrderTableInfo() : Array[PurchaseOrder] = {
+      try {
+      // make the connection
+      Class.forName(driver)
+      connection = DriverManager.getConnection(url, username, password)
+    }catch {
+      case e => e.printStackTrace
+       
+    }
+      val statement = connection.createStatement()
+      val resultSet = statement.executeQuery("SELECT * FROM purchaseorder")
+      var count = 0;
+      val purchaseOrders = new Array[PurchaseOrder](5)
+      while ( resultSet.next() ) {
+        purchaseOrders(count) = new PurchaseOrder(resultSet.getString("purchaseOrderID").toInt, resultSet.getString("supplierID").toInt, resultSet.getString("employeeID").toInt,
+            resultSet.getString("purchaseOrderDate"), resultSet.getString("purchaseOrderStatus"))
+        count = count+1
+      }
+     connection.close()
+    purchaseOrders
   }
   
   

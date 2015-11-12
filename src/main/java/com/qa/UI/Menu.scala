@@ -19,7 +19,9 @@ object Menu {
     println("Welcome " + employees(0).getEmployeeName())
     println()
     println("(1) Customer Orders ")
-    println("(2) View my Orders")
+    println("(2) Purchase Orders ")
+    println("(3) View my Customer Orders")
+    println("(4) Remove Damaged Stock")
     val choice = scan.nextLine()
     val numFormatter = new NumberFormatter
     if(numFormatter.convertFromStringToInt(choice)){
@@ -34,7 +36,9 @@ object Menu {
 
     menuChoice match {
       case 1 => CustomerOrderUI.buildCustomerOrderUI(1, true, mongo)
-      case 2  => CustomerOrderUI.buildCustomerOrderUI(1, false, mongo)
+       case 2 => PurchaseOrderUI.buildPurchaseOrderUI(1, true, mongo)
+      case 3  => CustomerOrderUI.buildCustomerOrderUI(1, false, mongo)
+      case 4  => ProductUI.buildProducts(mongo.productMongoData(),true,mongo)
       case _  =>  Menu.buildMenu(mongo)
     }
   }

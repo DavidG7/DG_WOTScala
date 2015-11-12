@@ -71,7 +71,15 @@ object CustomerOrderLineUI {
       val state = State.nextOf(State.withName(activeCustomerOrder.customerOrderStatus)).toString().substring(5,14)
       val option = scan.next()
       if(state.equals("Picked   ")){
-        mongo.updateProductStock(1,98765)
+       
+           for( x <- 0 to products.length-1){
+            for( y <-0 to customerOrderLines.length-1){
+              if(products(x).productID == customerOrderLines(y).getProductID() && 
+                  coID +1  == customerOrderLines(y).getCustomerOrderID()){
+                  mongo.updateProductStock(products(x).productID.toInt, products(x).stockLevel-customerOrderLines(y).getQuantity())
+              }
+              }
+        }
       }
       
      if(numFormatter.convertFromStringToInt(option)){
@@ -87,14 +95,14 @@ object CustomerOrderLineUI {
                 CustomerOrderUI.updateDataFromDB()
                 CustomerOrderUI.buildCustomerOrderUI(employeeID, true, mongo)
                 
-      case 2  => ProductUI.buildProducts(getActiveProducts())
+      case 2  => ProductUI.buildProducts(getActiveProducts(),false,mongo)
       case _  => Menu.buildMenu(mongo)  
     }
    }
       
       
-      def getActiveProducts(): Array[Product] = {
-           println(products.length)
+     def getActiveProducts(): Array[Product] = {
+
            var countTemp = 0
           val temp = new Array[Product](customerOrderLines.length)
           for( x <- 0 to products.length-1){

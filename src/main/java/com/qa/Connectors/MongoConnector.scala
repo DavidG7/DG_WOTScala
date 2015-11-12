@@ -57,9 +57,10 @@ class MongoConnector {
   }
     
     
-    def updateProductStock(productID:Double, newStock:Double){
+    def updateProductStock(productID:Int, newStock:Double){
+      
        val coll = db("Product")
-      val query = MongoDBObject("_id" -> productID)
+      val query = MongoDBObject("_id"-> productID)
       val update = MongoDBObject(
        "$set" -> MongoDBObject("stockLevel" -> newStock))
       coll.findAndModify(query,update)
