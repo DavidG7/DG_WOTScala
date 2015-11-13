@@ -13,7 +13,7 @@ import com.qa.Entities.PurchaseOrder
 
 
 class SQLConnector {
-     // connect to the database named "mysql" on the localhost
+    /** connect to the database named "wots" on the localhost**/
     val driver = "com.mysql.jdbc.Driver"
     val url = "jdbc:mysql://localhost/wots"
     val username = "root"

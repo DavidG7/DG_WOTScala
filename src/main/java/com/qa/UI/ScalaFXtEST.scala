@@ -1,5 +1,5 @@
 package com.qa.UI
-
+/** Scala FX Test, NOT USED in application**/
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
 import scalafx.collections.ObservableBuffer
@@ -8,7 +8,6 @@ import scalafx.scene.control.TableColumn._
 import scalafx.scene.control.{TableCell, TableColumn, TableView}
 import scalafx.scene.paint.Color
 import scalafx.scene.shape.Circle
-import com.qa.Entities.Person
 import scalafx.beans.property.StringProperty
 import com.qa.Entities.Employee
 import scalafx.beans.binding.Bindings
@@ -27,13 +26,13 @@ object TableWithCustomCellDemo extends JFXApp {
         columns ++= List(
           new TableColumn[Employee, String] {
             text = "First Name"
-            cellValueFactory = {_.value.employeeID_}
+           // cellValueFactory = {_.value.employeeID_}
             
             prefWidth = 100
           },
           new TableColumn[Employee, String]() {
             text = "Last Name"
-            cellValueFactory = { _.value.employeeName_ }
+          //  cellValueFactory = { _.value.employeeName_ }
             prefWidth = 100
           }
           

@@ -52,7 +52,7 @@ object PurchaseOrderUI {
     //println(State.prevOf(State.Accepted).toString())
       printPurchaseOrder(count)
       val orderToView = scan.nextLine()
-     if(numFormatter.convertFromStringToInt(orderToView)){
+     if(numFormatter.isInteger(orderToView)){
         purchaseOrderBridge(orderToView.toInt)
       }else{
         Menu.buildMenu(mongo)

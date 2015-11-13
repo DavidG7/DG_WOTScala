@@ -2,7 +2,10 @@ package com.qa.UI
 
 /**
  * @author dgordon
+
  */
+
+/** Ascii ART for Gnome**/
 object Gnome {
        
   def printGnome(){

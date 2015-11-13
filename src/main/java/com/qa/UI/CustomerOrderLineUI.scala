@@ -1,7 +1,6 @@
 package com.qa.UI
 
 import com.qa.Utility.Formatting
-import com.qa.Utility.State
 import com.qa.Entities.CustomerOrderLine
 import com.qa.Utility.NumberFormatter
 import java.util.Scanner
@@ -11,6 +10,7 @@ import com.qa.Entities.Employee
 import java.util.Arrays.ArrayList
 import com.qa.Entities.CustomerOrder
 import com.qa.Entities.Product
+import com.qa.Utility.CustomerOrderState
 
 /**
  * @author dgordon
@@ -23,8 +23,8 @@ object CustomerOrderLineUI {
   
   def customerOrderLine(coID:Int, customerOrderLines:Array[CustomerOrderLine], mongo:MongoConnector, 
       sql: SQLConnector,employeeID:Int):Unit = {
-    val employees = mongo.employeeMongoData()
-    val products = mongo.productMongoData()
+    val employees = mongo.getMongoData(new Employee)
+    val products = mongo.getMongoData(new Product)
     val customerOrders = sql.getCustomerOrderTableInfo()
     val activeCustomerOrder = customerOrders(coID)
     Formatting.printSpacesLarge()
@@ -68,7 +68,7 @@ object CustomerOrderLineUI {
       
       println("(3) View Warehouse Tracker for Order")
 
-      val state = State.nextOf(State.withName(activeCustomerOrder.customerOrderStatus)).toString().substring(5,14)
+      val state = CustomerOrderState.nextOf(CustomerOrderState.withName(activeCustomerOrder.customerOrderStatus)).toString().substring(5,14)
       val option = scan.next()
       if(state.equals("Picked   ")){
        
@@ -82,7 +82,7 @@ object CustomerOrderLineUI {
         }
       }
       
-     if(numFormatter.convertFromStringToInt(option)){
+     if(numFormatter.isInteger(option)){
 
         customerOrderLineBridge(option.toInt)
       }

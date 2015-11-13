@@ -3,6 +3,8 @@ package com.qa.Entities
 /**
  * @author dgordon
  */
+
+/** Customer Order Entity**/
 class CustomerOrder (customerOrderID:Int, customerID:Int, customerOrderDate:String, var customerOrderStatus:String, employeeID:Int){
   
    def getCustomerOrderID() :Int = {

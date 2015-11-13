@@ -52,7 +52,7 @@ object ProductUI {
       println("(Letter) Menu")
      
       val option = scan.next()
-      if(numFormatter.convertFromStringToInt(option)){
+      if(numFormatter.isInteger(option)){
           productBridge(option.toInt)
       }else{
          Menu.buildMenu(mongo)

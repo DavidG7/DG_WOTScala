@@ -4,7 +4,10 @@ import scalafx.beans.property.StringProperty
 
 /**
  * @author dgordon
+
  */
+
+/** Purchase Order Entity**/
 class PurchaseOrder (purchaseOrderID:Int, supplierID:Int, employeeID: Int, purchaseOrderDate:String, purchaseOrderStatus: String) {
   
  

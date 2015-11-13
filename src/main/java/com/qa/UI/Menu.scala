@@ -9,9 +9,10 @@ import com.qa.Utility.NumberFormatter
 /**
  * @author dgordon
  */
+/** Menu UI Terminal **/
 object Menu {
   
-  val scan  = new Scanner(System.in)
+  val scan  = new Scanner(System.in)//User Input
    
   def buildMenu(mongo:MongoConnector){
     Formatting.printSpacesLarge()
@@ -24,7 +25,7 @@ object Menu {
     println("(4) Remove Damaged Stock")
     val choice = scan.nextLine()
     val numFormatter = new NumberFormatter
-    if(numFormatter.convertFromStringToInt(choice)){
+    if(numFormatter.isInteger(choice)){
       val choiceInt = choice.toInt
       menuBridge(choiceInt)
     }else{
@@ -32,6 +33,10 @@ object Menu {
     }
   
     
+    
+    /**Depending on user input, UI will instantiate different Obeject, CustomerOrder Screen, 
+     * PurchaseOrder Screen etc
+     */
     def menuBridge(menuChoice:Int) {
 
     menuChoice match {

@@ -3,6 +3,8 @@ package com.qa.Utility
 /**
  * @author dgordon
  */
+
+/** Utility class to print spaces and headings **/
 object Formatting {
   def printSpacesLarge(){
     println()

@@ -2,9 +2,13 @@ package com.qa.Utility
 
 /**
  * @author dgordon
+
  */
+
+/**Validates scan.next() as INT*/
 class NumberFormatter {
-  def convertFromStringToInt(temp:String):Boolean = {
+  
+  def isInteger(temp:String):Boolean = {
    
    try { 
    val tempInt = temp.toInt

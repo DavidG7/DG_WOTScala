@@ -6,7 +6,9 @@ import com.qa.Connectors.MongoConnector
 
 /**
  * @author dgordon
+
  */
+/**Login UI **/
 object Login {
  
   val mongo = new MongoConnector
@@ -14,9 +16,9 @@ object Login {
   val scan  = new Scanner(System.in)
   buildLogin(true)
   
-  
+  /** firstTime is used to differentiate between first time login, and failed login**/
   def buildLogin(firstTime:Boolean) {
-
+     Gnome.printGnome()
     if(firstTime){
       println()
       println()
@@ -40,6 +42,10 @@ object Login {
     loginBridge(validateLogin(username, password))
  }
   
+  
+/* Validates user by recursively comparing the entered credintials 
+ * with each employee using the validateIndividual function  
+ */
  def validateLogin(username:String, password:String):Boolean = {
     
     var count = 0
@@ -69,6 +75,7 @@ object Login {
     validateIndividual(employees(count))
   }
   
+ /**If user is validated go to Menu, else redbuild login with false 'firstTime' parameter**/
     def loginBridge(validated:Boolean) {
 
     validated match {

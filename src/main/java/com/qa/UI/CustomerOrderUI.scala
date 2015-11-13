@@ -7,7 +7,7 @@ import com.qa.Connectors.SQLConnector
 import java.util.Scanner
 import com.qa.Connectors.MongoConnector
 import com.qa.Utility.NumberFormatter
-import com.qa.Utility.Help
+
 import com.qa.Entities.CustomerOrderLine
 
 /**
@@ -56,7 +56,7 @@ object CustomerOrderUI {
     //println(State.prevOf(State.Accepted).toString())
       printCustomerOrder(count)
       val orderToView = scan.nextLine()
-     if(numFormatter.convertFromStringToInt(orderToView)){
+     if(numFormatter.isInteger(orderToView)){
         customerOrderBridge(orderToView.toInt)
       }else{
         Menu.buildMenu(mongo)
