@@ -35,7 +35,7 @@ object CustomerOrderLineUI {
       print("P ID")
       print("  |  ")
       print("QUAN")
-       print("  |")
+      print("  |")
       println()
     
     def printCustomerOrderLines(count:Int):Unit= {
