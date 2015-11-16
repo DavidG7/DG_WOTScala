@@ -3,12 +3,14 @@ Scala project, NBGardens
 
 
 Key Features:
+
 ScalaFX GUI as well as Text based UI
 Ability to view information about both customer and purchase orders(TEXT ONLY).
 Persistence using both a MySQL and MongoDB database.
 Please see scaladocs folder for full documentation.
 
-Instructions
+Instructions:
+
 To run the program please run the GUIDriver for a GUI based application. There is also an option to run the project as a text based application. To do this run the TextUIDriver. Both can be found under the Driver package  
 
 The program will start but in order to login a mongo database must be set up. A mongo script text file has been included which can be used to engineer the mongo collections and required documents in order to Log in.
