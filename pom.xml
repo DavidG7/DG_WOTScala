@@ -3,7 +3,18 @@
   <groupId>com.qa</groupId>
   <artifactId>WOTScala</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <build>
   
+  <plugins>
+
+      <plugin>
+        <groupId>org.scala-tools</groupId>
+        <artifactId>maven-scala-plugin</artifactId>
+      </plugin>
+ 
+    </plugins>
+    </build>
+    
     <dependencies>
 	<dependency>
 	<groupId>org.scalafx</groupId>
