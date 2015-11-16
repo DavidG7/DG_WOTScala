@@ -18,5 +18,5 @@ As both the TextBased and GUI based applications also make use of an SQL databas
 
 Login is;
 Username : JS117
-Password, Gnomes4LIFE!
+Password: Gnomes4LIFE!
 
