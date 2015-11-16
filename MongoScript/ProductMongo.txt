@@ -1,0 +1,17 @@
+
+db.Employee.insert([
+{
+        "_id" : 1,
+        "employeeName" : "Jenny Slater",
+        "employeeUserName" : "JS117",
+        "employeePassword" : "Gnomes4LIFE!",
+        "accessLevel" : 1
+},
+{
+        "_id" : 2,
+        "employeeName" : "Ben Back",
+        "employeeUserName" : "BBGun",
+        "employeePassword" : "PutYourBackIntoIt",
+        "accessLevel" : "1"
+}
+])
