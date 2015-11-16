@@ -1,4 +1,4 @@
-package com.qa.UI
+/*package com.qa.UI
 
 import com.qa.Utility.Formatting
 import com.qa.Connectors.MongoConnector
@@ -48,4 +48,4 @@ object Menu {
     }
   }
 }
-}
+}*/

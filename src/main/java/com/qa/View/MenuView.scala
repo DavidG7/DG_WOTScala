@@ -10,19 +10,13 @@ import scalafx.scene.Scene
 import scalafx.scene.control._
 import scalafx.scene.layout.VBox
 import scalafx.application.JFXApp
-import scalafx.application.JFXApp.PrimaryStage
-import scalafx.beans.property.StringProperty.sfxStringProperty2jfx
 import scalafx.geometry.Insets
 import scalafx.scene.Scene
 import scalafx.scene.control.Button
 import scalafx.scene.control.Label
-import scalafx.scene.control.PasswordField
-import scalafx.scene.control.TextField
-import scalafx.scene.layout.HBox
 import scalafx.scene.layout.VBox
-import com.qa.Connectors.MongoConnector
-import com.qa.Controller.LoginVerifier
 import scalafx.scene.Scene
+import com.qa.View.LoginView
 
 
 object MenuView extends JFXApp {
@@ -41,6 +35,7 @@ object MenuView extends JFXApp {
           text = "Menu"
           style = "-fx-font-size: 24pt"
         
+
         }
         
         
@@ -55,21 +50,13 @@ object MenuView extends JFXApp {
                 
               }
             },
-             new Button{
-              text = "Purchase Orders"
-               margin=Insets(10,10,10,0)
-              style = "-fx-font-size: 12pt"
-              onAction = handle{
-               
-                
-              }
-            },
+         
              new Button{
               text = "Products"
               margin=Insets(10,10,10,0)
               style = "-fx-font-size: 12pt"
               onAction = handle{
-               
+                 ViewMain.stage.scene_=(ProductView.buildProduct())
                 
               }
             },
@@ -78,7 +65,7 @@ object MenuView extends JFXApp {
               style = "-fx-font-size: 12pt"
                margin=Insets(10,10,10,0)
               onAction = handle{
-             
+               ViewMain.stage.scene_=(LoginView.buildLogin())
               }
             }
           )

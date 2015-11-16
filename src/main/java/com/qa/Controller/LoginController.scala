@@ -18,22 +18,16 @@ object LoginController {
   
     
     def validateIndividual(employee:Employee):Boolean = {
-    
-       println()
+
       if(employee.getEmployeeUserName().equals(username)&& employee.getEmployeePassword().equals(password)){
-        
         true
       }else{      
-
-        count = count+1
-        if(count < employees.size){
-          
-          
-          validateIndividual(employees(count))
-         
-        }
+      
+        count = count+ 1
+        validateIndividual(employees(count))
         false
       }
+     
         
     }
     

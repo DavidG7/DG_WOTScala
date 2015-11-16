@@ -1,4 +1,4 @@
-package com.qa.UI
+/*package com.qa.UI
 
 import com.qa.Connectors.SQLConnector
 import java.util.Scanner
@@ -72,4 +72,4 @@ object PurchaseOrderUI {
     sqlConnector = new SQLConnector
     purchaseOrders = sqlConnector.getPurchaseOrderTableInfo()
   }
-}
+}*/

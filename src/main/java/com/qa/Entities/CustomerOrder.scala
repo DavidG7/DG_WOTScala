@@ -8,7 +8,7 @@ import scalafx.beans.property.ObjectProperty
  */
 
 /** Customer Order Entity**/
-class CustomerOrder (customerOrderID:Int, customerID:Int, customerOrderDate:String, var customerOrderStatus:String, employeeID:Int){
+class CustomerOrder (val customerOrderID:Int, val customerID:Int, val customerOrderDate:String, val customerOrderStatus:String, employeeID:Int){
   
   val customerOrderID_ = new ObjectProperty(this, "customerOrderID_", customerOrderID)
   val customerID_ = new ObjectProperty(this, "customerID_", customerID)
@@ -16,21 +16,6 @@ class CustomerOrder (customerOrderID:Int, customerID:Int, customerOrderDate:Stri
   val employeeID_ = new ObjectProperty(this, "employeeID_",employeeID)
   
   
-   def getCustomerOrderID() :Int = {
-    customerOrderID
-  }
   
-  def getCustomerID() :Int = {
-    customerID
-  }
-   
-  def getCustomerOrderDate() :String = {
-    customerOrderDate
-  }
-    
-  def getEmoployeeID() :Int = {
-    employeeID 
-   }
-
 
 }

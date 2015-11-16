@@ -4,24 +4,15 @@ package com.qa.View
  * @author dgordon
  */
 import scalafx.application.JFXApp
-import scalafx.application.JFXApp.PrimaryStage
-import scalafx.collections.ObservableBuffer
-import scalafx.scene.Scene
 import scalafx.scene.control.TableColumn._
-import scalafx.scene.control.{TableColumn, TableView}
-import scalafx.scene.paint.Color
-import com.qa.Entities.Person
+import scalafx.scene.control.TableView
 import com.qa.Entities.CustomerOrder
-import com.qa.Controller.CustomerOrderController
-import scalafx.scene.input.MouseEvent
-import scalafx.event.EventHandler
 import scalafx.Includes._
-import scalafx.scene.control.TablePosition
+import scala.collection.mutable.ObservableBuffer
 import com.qa.Controller.CustomerOrderController
-import com.qa.Controller.CustomerOrderController
+import scalafx.collections.ObservableBuffer
 import scalafx.geometry.Insets
-
-
+import scalafx.scene.control.TableColumn
 
 object CustomerOrderTable extends JFXApp {
 

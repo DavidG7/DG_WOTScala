@@ -6,7 +6,7 @@ package com.qa.UI
  */
 
 /** Ascii ART for Gnome**/
-object Gnome {
+/*object Gnome {
        
   def printGnome(){
     println()
@@ -24,4 +24,4 @@ object Gnome {
   }
 
 
-}
+}*/
